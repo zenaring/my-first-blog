@@ -1,36 +1,41 @@
-<html>
-    <head>
-        <title>🎉쿠리구리쿠리구리🎉</title>
-    </head>
-    <body>
-        {% for post in posts %}
-        <div>
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    {% for post in posts %}
+    <div class="post">
+        <div class="date">
             <p>published: {{ post.published_date }}</p>
-            <h1><a href="">{{ post.title }}</a></h1>
-            <p>{{ post.text|linebreaksbr }}</p>
-            </div> 
-            {% endfor %}
-    <div>
-            <h1><a href="https://loawa.com/char/%EB%AD%84%EA%BE%B8">🎈꾸 프로필 바로보기</a></h1>
-            <a></a><img src="https://img.lostark.co.kr/armory/1/33AC96AAE0521393A07C9A87C76FFFEDD03ABE8A4DEECF23621E0BEE4D2BC609.png?v=20230520092038" width="300" class="p-0"</a>
         </div>
+        <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+        <p>{{ post.text|linebreaksbr }}</p>
+    </div>
+    {% endfor %}
+{% endblock %}
 
-        <div>
-            <p><strong><font color=blue>알카 취업합니다. 연락주세요.</font></strong></p>
-            <h2><a href=""></a></h2>
-            <p>[이력]</p>
-            <p>- 쿠크 : 잘못함</p>
-            <p>- 아브 내부 가능 (매우잘함)</p>
-            <p>- 일리아칸 잔혈가능</p>
-            <p>[현재 주요 관심사]</p>
-            <p>- 카드작 (페르마타, 페이토 카드팩 거덜내는 중)</p>
-        </div>
+<div>
+    <h1><a href="https://loawa.com/char/%EB%AD%84%EA%BE%B8">🎈꾸 프로필 바로보기</a></h1>
+    <a></a><img
+        src="https://img.lostark.co.kr/armory/1/33AC96AAE0521393A07C9A87C76FFFEDD03ABE8A4DEECF23621E0BEE4D2BC609.png?v=20230520092038"
+        width="300" class="p-0" </a>
+</div>
 
-        <div>
-            <p></p>
-            <h2><a href="">My second post</a></h2>
-            <p></p>
-        </div>
-    </body>
+<div>
+    <p><strong>
+            <font color=blue>알카 취업합니다. 연락주세요.</font>
+        </strong></p>
+    <h2><a href=""></a></h2>
+    <p>[이력]</p>
+    <p>- 쿠크 : 잘못함</p>
+    <p>- 아브 내부 가능 (매우잘함)</p>
+    <p>- 일리아칸 잔혈가능</p>
+    <p>[현재 주요 관심사]</p>
+    <p>- 카드작 (페르마타, 페이토 카드팩 거덜내는 중)</p>
+</div>
+
+<div>
+    <p></p>
+    <h2><a href="">My second post</a></h2>
+    <p></p>
+</div>
+</body>
 </html>
-
